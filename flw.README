@@ -1,0 +1,147 @@
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % ls
+total 48
+drwxr-xr-x  8 Akira  staff   256  4 30 23:07 ./
+drwxr-xr-x  5 Akira  staff   160  4 30 22:09 ../
+drwxr-xr-x  8 Akira  staff   256  4 27 13:39 20220427/
+-rwxr--r--  1 Akira  staff  1037  4 20 11:46 exdiff.sh*
+-rwxr--r--  1 Akira  staff   661  4 23 19:06 exonly.sh*
+-rw-r--r--  1 Akira  staff  3842  4 30 22:23 flw.README
+-rw-r--r--  1 Akira  staff  4477  4 30 23:07 followfollower.go
+-rwxr--r--  1 Akira  staff   254  4 30 22:17 today.sh*
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % go mod init
+go: creating new go.mod: module github.com/akira0000k/tw-follow
+go: to add module requirements and sums:
+	go mod tidy
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % go mod tidy
+go: finding module for package github.com/ChimeraCoder/anaconda
+go: found github.com/ChimeraCoder/anaconda in github.com/ChimeraCoder/anaconda v2.0.0+incompatible
+go: finding module for package github.com/garyburd/go-oauth/oauth
+go: finding module for package github.com/azr/backoff
+go: finding module for package github.com/ChimeraCoder/tokenbucket
+go: finding module for package github.com/dustin/go-jsonpointer
+go: found github.com/ChimeraCoder/tokenbucket in github.com/ChimeraCoder/tokenbucket v0.0.0-20131201223612-c5a927568de7
+go: found github.com/azr/backoff in github.com/azr/backoff v0.0.0-20160115115103-53511d3c7330
+go: found github.com/dustin/go-jsonpointer in github.com/dustin/go-jsonpointer v0.0.0-20160814072949-ba0abeacc3dc
+go: found github.com/garyburd/go-oauth/oauth in github.com/garyburd/go-oauth v0.0.0-20180319155456-bca2e7f09a17
+go: finding module for package golang.org/x/net/context
+go: finding module for package github.com/dustin/gojson
+go: found github.com/dustin/gojson in github.com/dustin/gojson v0.0.0-20160307161227-2e71ec9dd5ad
+go: found golang.org/x/net/context in golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % cat go.mod
+module github.com/akira0000k/tw-follow
+
+go 1.17
+
+require github.com/ChimeraCoder/anaconda v2.0.0+incompatible
+
+require (
+	github.com/ChimeraCoder/tokenbucket v0.0.0-20131201223612-c5a927568de7 // indirect
+	github.com/azr/backoff v0.0.0-20160115115103-53511d3c7330 // indirect
+	github.com/dustin/go-jsonpointer v0.0.0-20160814072949-ba0abeacc3dc // indirect
+	github.com/dustin/gojson v0.0.0-20160307161227-2e71ec9dd5ad // indirect
+	github.com/garyburd/go-oauth v0.0.0-20180319155456-bca2e7f09a17 // indirect
+	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
+)
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % go build
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % ls
+total 13176
+drwxr-xr-x  11 Akira  staff      352  4 30 23:07 ./
+drwxr-xr-x   5 Akira  staff      160  4 30 22:09 ../
+drwxr-xr-x   8 Akira  staff      256  4 27 13:39 20220427/
+-rwxr--r--   1 Akira  staff     1037  4 20 11:46 exdiff.sh*
+-rwxr--r--   1 Akira  staff      661  4 23 19:06 exonly.sh*
+-rw-r--r--   1 Akira  staff     3842  4 30 22:23 flw.README
+-rw-r--r--   1 Akira  staff     4477  4 30 23:07 followfollower.go
+-rw-r--r--   1 Akira  staff      574  4 30 23:07 go.mod
+-rw-r--r--   1 Akira  staff     2084  4 30 23:07 go.sum
+-rwxr--r--   1 Akira  staff      254  4 30 22:17 today.sh*
+-rwxr-xr-x   1 Akira  staff  6711248  4 30 23:07 tw-follow*
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % ./today.sh
+++ date +%Y%m%d
++ today=20220430
++ mkdir 20220430
++ ./tw-follow -followers
+get followers
+.........+ ./tw-follow -friends
+get friends
+............+ echo
+
++ cd 20220430
++ ../exdiff.sh follower-20220430.log
+     737 follower-20220430.log
+compare follower
+     739 ./../20220427/follower-20220427.log
+flw-add ===============
+flw-del ===============
+toshipiko007	"平和への道＠彡トシピコ彡"	"地上の戦争を終わらせ、世界平和を実現する。これからは命を慈しむ人づくり国づくりをしていこう。軍事力には限界があるテロを防げない。暴力を鎮めるのは非暴力・愛である。人間の自己愛から、道徳心・自制心、人類愛を共有していこう。9条外交で、軍縮・心的武装解除をしていこう。自立・共生・多様性。#命の尊厳 #兄弟姉妹 #死刑廃止"
+sihamaogahaok17	"私は猫が好きです"	"動物愛好家"
++ ../exdiff.sh friends-20220430.log
+     999 friends-20220430.log
+compare friend
+     999 ./../20220427/friends-20220427.log
+frd-add ===============
+frd-del ===============
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % ls
+total 13176
+drwxr-xr-x  12 Akira  staff      384  4 30 23:08 ./
+drwxr-xr-x   5 Akira  staff      160  4 30 22:09 ../
+drwxr-xr-x   8 Akira  staff      256  4 27 13:39 20220427/
+drwxr-xr-x   8 Akira  staff      256  4 30 23:11 20220430/
+-rwxr--r--   1 Akira  staff     1037  4 20 11:46 exdiff.sh*
+-rwxr--r--   1 Akira  staff      661  4 23 19:06 exonly.sh*
+-rw-r--r--   1 Akira  staff     3842  4 30 22:23 flw.README
+-rw-r--r--   1 Akira  staff     4477  4 30 23:07 followfollower.go
+-rw-r--r--   1 Akira  staff      574  4 30 23:07 go.mod
+-rw-r--r--   1 Akira  staff     2084  4 30 23:07 go.sum
+-rwxr--r--   1 Akira  staff      254  4 30 22:17 today.sh*
+-rwxr-xr-x   1 Akira  staff  6711248  4 30 23:07 tw-follow*
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % ls 20220430
+total 920
+drwxr-xr-x   8 Akira  staff     256  4 30 23:11 ./
+drwxr-xr-x  12 Akira  staff     384  4 30 23:08 ../
+-rw-r--r--   1 Akira  staff       0  4 30 23:11 flw-add.txt
+-rw-r--r--   1 Akira  staff     581  4 30 23:11 flw-del.txt
+-rw-r--r--   1 Akira  staff  192695  4 30 23:09 follower-20220430.log
+-rw-r--r--   1 Akira  staff       0  4 30 23:11 frd-add.txt
+-rw-r--r--   1 Akira  staff       0  4 30 23:11 frd-del.txt
+-rw-r--r--   1 Akira  staff  256592  4 30 23:11 friends-20220430.log
+
+
+
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow % cd 20220430
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow/20220430 % DIFF=diff ../exdiff.sh follower-20220430.log 
+     737 follower-20220430.log
+compare follower
+     739 ./../20220427/follower-20220427.log
+flw-add ===============
+flw-del ===============
+toshipiko007	"平和への道＠彡トシピコ彡"	"地上の戦争を終わらせ、世界平和を実現する。これからは命を慈しむ人づくり国づくりをしていこう。軍事力には限界があるテロを防げない。暴力を鎮めるのは非暴力・愛である。人間の自己愛から、道徳心・自制心、人類愛を共有していこう。9条外交で、軍縮・心的武装解除をしていこう。自立・共生・多様性。#命の尊厳 #兄弟姉妹 #死刑廃止"
+sihamaogahaok17	"私は猫が好きです"	"動物愛好家"
+1d0
+< toshipiko007	"平和への道＠彡トシピコ彡"	"地上の戦争を終わらせ、世界平和を実現する。これからは命を慈しむ人づくり国づくりをしていこう。軍事力には限界があるテロを防げない。暴力を鎮めるのは非暴力・愛である。人間の自己愛から、道徳心・自制心、人類愛を共有していこう。9条外交で、軍縮・心的武装解除をしていこう。自立・共生・多様性。#命の尊厳 #兄弟姉妹 #死刑廃止"
+6d4
+< sihamaogahaok17	"私は猫が好きです"	"動物愛好家"
+20c18
+< pomme_parole	"秘名Q"	"微睡//甘露//再生の日々 双極性障害、発達障害 オウマー 吸血姫 ゴンダリニー 紅茶クイーン ひかりは光と闇を克服する🌳🌕🌲https://t.co/7UWD7Clxqdキャス@4honoka1231"
+---
+> pomme_parole	"秘名Q"	"微睡//甘露//再生の日々 高機能双極、解離🥀 オウマー 吸血姫 ゴンダリニー 紅茶クイーン ひかりは光と闇を克服する🌳🌕🌲https://t.co/7UWD7Clxqdキャス@4honoka1231"
+175c173
+< 00ReikoMinamata	"れいこ"	""
+---
+> 00ReikoMinamata	"R≒≠∥5"	"#玩具修理者 #向日葵の咲かない夏 #仄暗い水の底から #吉田芹那 #平沢進 #Z"
+312c310
+< sinwanohate	"レイジ"	"原発即時ゼロ。護憲。野党共闘の成功を祈る。好きなもの：生き物、スポーツ。アイコンは近所の公園のカワセミ。背景画像は散策しながら撮った身近な生き物たち。この一年、生き物の写真を突如撮り始めました。"
+---
+> sinwanohate	"レイジ"	"原発即時ゼロ。護憲。好きなもの：生き物、スポーツ。アイコンは近所のカワセミ。背景画像は散策しながら撮った身近な生き物たち。この一年、生き物の写真を撮り始めました。"
+352c350
+< ichinang	"あんごう(改憲阻止)"	"311後、子供を連れて東京を脱出し福岡着.紆余曲折ありながらも完全回復😊脱原発.脱被曝/音楽全般(水戸華之介.SION.宇多田.電気ｸﾞﾙｰｳﾞとか)/映画/文学/死刑反対/闘う介護福祉士/水戸華之介と坂口安吾がずっと好き/日本脱出したい…/自立と主体性とリスペクト #山本太郎 #れいわ新選組 #希望はれいわボラ"
+---
+> ichinang	"あんごう(改憲阻止)"	"311後、子供を連れて東京を脱出し福岡着.紆余曲折ありながらもなんとか回復😊音楽全般(水戸華之介.SION.宇多田.電気ｸﾞﾙｰｳﾞとか…)/水戸華之介と坂口安吾がずっと好き/映画/文学/死刑反対/脱原発.脱被曝/日本脱出したい…/自立と主体性とリスペクト #山本太郎 #れいわ新選組 #希望はれいわボラ"
+595c593
+< BB45_Colorado	"Hiroshi Makita Ph.D. 誰が日本のコロナ禍を悪化させたのか？扶桑社8/18発売中"	"著述家、約4万冊の本と同時に焼かれた元大学教員\n日刊SPA!連載中\nhttps://t.co/FRctVqzsKW\n有料メルマガ(COVID-19臨時編成)配信中\nhttps://t.co/0Dh0MbFfXY"
+---
+> BB45_Colorado	"Hiroshi Makita Ph.D. 誰が日本のコロナ禍を悪化させたのか？扶桑社8/18発売中"	"著述家、約4万冊の本と同時に焼かれた元大学教員\n日刊SPA!連載中\nhttps://t.co/Wul6Rijv4J…"
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow/20220430 %   C-c C-c
+Akira@MBP-2 ~/go/src/github.com/akira0000k/tw-follow/20220430 % 
+
+Process shell exited abnormally with code 130
