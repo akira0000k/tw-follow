@@ -3,7 +3,7 @@ set -x
 
 today="${1:-$(date +%Y%m%d)}"
 
-mkdir $today || exit
+mkdir -p $today || exit
  
 ./tw-follow -followers > $today/follower-$today.log
 ./tw-follow -friends   > $today/friends-$today.log

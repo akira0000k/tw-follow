@@ -14,17 +14,17 @@ cut -f1 $oldfile | sort > $IDF1
 cut -f1 $newfile | sort > $IDF2
 
 sort -m $IDF1 $IDF2 |
-    uniq -u > $UNIQ |
-    sed 's/$/\t/'
+    uniq -u |
+    sed 's/$/\t/;s/^/^/' > $UNIQ 
 
-grep -F -f$UNIQ $oldfile > $summary-del.txt
-grep -F -f$UNIQ $newfile > $summary-add.txt
+grep -G -f$UNIQ $oldfile > $summary-del.txt
+grep -G -f$UNIQ $newfile > $summary-add.txt
 
 echo $summary-add ===============
 head -10 $summary-add.txt
 echo $summary-del ===============
 head -10 $summary-del.txt
-
+echo =======================
 rm $IDF1
 rm $IDF2
 rm $UNIQ

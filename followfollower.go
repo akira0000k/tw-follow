@@ -29,12 +29,16 @@ var api *anaconda.TwitterApi
 func main(){
 	followerp := flag.Bool("followers", false, "get followers")
 	friendp   := flag.Bool("friends", true, "get friends")
+	screennamePtr := flag.String("name", "", "twitter @ screenname")
 	flag.Parse()
 	
 	api = connectTwitterApi()
 	var uv=url.Values{}
 
-	//uv["screen_name"]   = []string{"??????????"} //default= auth id
+	//default= auth id
+	if *screennamePtr != "" {
+		uv.Set("screen_name", *screennamePtr)
+	}
 	uv["cursor"]        = []string{"-1"} //default=from start
 	//uv["count"]         = []string{"100"}  //default=5000
 
