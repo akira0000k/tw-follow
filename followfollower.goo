@@ -97,10 +97,7 @@ func lookup(ids []int64, uv0 url.Values) {
 			idstr := strconv.FormatInt(id, 10)
 			// fmt.Println(idstr)
 			user, ok := usermap[idstr]
-			if !ok {
-				// gomi ga kuru  1427089246616121300, 1427089246616121347, 1525305912155459600, 1453000422956970000,
-				continue
-			}
+			if !ok { break }
 			//fmt.Printf("%s\t%#v\t%#v\n", user.ScreenName, user.Name, user.Description)
 			username := strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(user.Name,        "\n", `\n`), "\r", `\r`), "\"", `\"`)
 			userdesc := strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(user.Description, "\n", `\n`), "\r", `\r`), "\"", `\"`)
