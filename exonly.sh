@@ -22,8 +22,10 @@ grep -G -f$UNIQ $newfile > $summary-add.txt
 
 echo $summary-add ===============
 head -10 $summary-add.txt
+[ $(cat $summary-add.txt | wc -l) -gt 10 ] && echo '................'
 echo $summary-del ===============
 head -10 $summary-del.txt
+[ $(cat $summary-del.txt | wc -l) -gt 10 ] && echo '................'
 echo =======================
 rm $IDF1
 rm $IDF2

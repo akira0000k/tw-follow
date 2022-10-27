@@ -28,7 +28,7 @@ parentdir=$(dirname "$file")/..
 
 if [ -z "$befile" ]; then
     # when no before-file, guess it
-    befile=$(ls  $parentdir/20*/*$type* | tail -2 | head -1)
+    befile=$(ls  $parentdir/20*/$type*.log | tail -2 | head -1)
 fi
 
 wc -l -- "$befile" || exit
